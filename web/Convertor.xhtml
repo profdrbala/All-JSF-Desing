@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Convertor Test</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2" border="1">
+            <h:outputText value="Convertor Double"/> 
+            <h:inputText value="#{c.dc}">
+            <f:converter converterId="javax.faces.Double"/>
+        </h:inputText>
+        
+        <h:outputText value="Convertor Integer"/>
+        <h:inputText value = "#{c.ic}" >
+            <f:converter converterId="javax.faces.Integer"/>  
+        </h:inputText>
+
+        <h:outputText value="Percentage %"/>
+        <h:inputText value = "#{c.per}" >  
+            <f:convertNumber type = "percent" /> 
+        </h:inputText>
+
+        <h:outputText value="Currency $"/>              
+        <h:inputText value = "#{c.cur}">
+            <f:convertNumber currencySymbol = "$" type = "currency" />
+        </h:inputText>
+
+        <h:outputText value="Pattern #000.000"/>      
+        <h:inputText value = "#{c.pat}" >
+            <f:convertNumber pattern = "#000.000" /> 
+        </h:inputText>
+
+        <h:outputText value="Min Fraction 2 digit"/>       
+        <h:inputText value = "#{c.mf}" > 
+            <f:convertNumber minFractionDigits = "2" /> 
+        </h:inputText>
+
+        <h:outputText value="Date Convertor dd-mm-yyyy"/>
+        <h:inputText value = "#{c.dat}" >
+            <f:convertDateTime pattern = "dd-mm-yyyy" /> 
+        </h:inputText>
+        </h:panelGrid>
+        
+        <h:commandButton value="Submit" type="submit()"/>
+
+        </h:form>
+        
+        Convertor Double #{c.dc} <br/>
+        Integer          #{c.ic} <br/>
+        Percentage       #{c.per} <br/>
+        Currency         #{c.cur} <br/>
+        Pattern          #{c.pat} <br/>
+        Minimum fraction #{c.mf} <br/>
+        Date Pattern     #{c.dat} <br/>
+    </h:body>
+</html>
+
